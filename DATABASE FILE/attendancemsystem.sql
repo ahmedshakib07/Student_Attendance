@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 07, 2021 at 11:01 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost:3306
+-- Generation Time: Jun 05, 2024 at 03:57 AM
+-- Server version: 8.0.30
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbladmin` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `emailAddress` varchar(50) NOT NULL,
@@ -48,7 +49,7 @@ INSERT INTO `tbladmin` (`Id`, `firstName`, `lastName`, `emailAddress`, `password
 --
 
 CREATE TABLE `tblattendance` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `admissionNo` varchar(255) NOT NULL,
   `classId` varchar(10) NOT NULL,
   `classArmId` varchar(10) NOT NULL,
@@ -99,7 +100,7 @@ INSERT INTO `tblattendance` (`Id`, `admissionNo`, `classId`, `classArmId`, `sess
 --
 
 CREATE TABLE `tblclass` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `className` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -119,7 +120,7 @@ INSERT INTO `tblclass` (`Id`, `className`) VALUES
 --
 
 CREATE TABLE `tblclassarms` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `classId` varchar(10) NOT NULL,
   `classArmName` varchar(255) NOT NULL,
   `isAssigned` varchar(10) NOT NULL
@@ -142,7 +143,7 @@ INSERT INTO `tblclassarms` (`Id`, `classId`, `classArmName`, `isAssigned`) VALUE
 --
 
 CREATE TABLE `tblclassteacher` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `emailAddress` varchar(255) NOT NULL,
@@ -170,7 +171,7 @@ INSERT INTO `tblclassteacher` (`Id`, `firstName`, `lastName`, `emailAddress`, `p
 --
 
 CREATE TABLE `tblsessionterm` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `sessionName` varchar(50) NOT NULL,
   `termId` varchar(50) NOT NULL,
   `isActive` varchar(10) NOT NULL,
@@ -192,7 +193,7 @@ INSERT INTO `tblsessionterm` (`Id`, `sessionName`, `termId`, `isActive`, `dateCr
 --
 
 CREATE TABLE `tblstudents` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `otherName` varchar(255) NOT NULL,
@@ -232,7 +233,7 @@ INSERT INTO `tblstudents` (`Id`, `firstName`, `lastName`, `otherName`, `admissio
 --
 
 CREATE TABLE `tblterm` (
-  `Id` int(10) NOT NULL,
+  `Id` int NOT NULL,
   `termName` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -305,42 +306,51 @@ ALTER TABLE `tblterm`
 -- AUTO_INCREMENT for table `tbladmin`
 --
 ALTER TABLE `tbladmin`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `tblattendance`
 --
 ALTER TABLE `tblattendance`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+
 --
 -- AUTO_INCREMENT for table `tblclass`
 --
 ALTER TABLE `tblclass`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `tblclassarms`
 --
 ALTER TABLE `tblclassarms`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `tblclassteacher`
 --
 ALTER TABLE `tblclassteacher`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `tblsessionterm`
 --
 ALTER TABLE `tblsessionterm`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `tblstudents`
 --
 ALTER TABLE `tblstudents`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `tblterm`
 --
 ALTER TABLE `tblterm`
-  MODIFY `Id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
